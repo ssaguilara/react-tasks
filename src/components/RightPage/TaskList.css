@@ -1,0 +1,18 @@
+.taskList {
+  margin: 0;
+  padding: 5px 10px;
+  height: 59vh;
+  list-style: none;
+  overflow: auto;
+}
+
+.taskList::-webkit-scrollbar {
+  width: 5px;
+  background-color: #71357c;
+  border-radius: 5px;
+}
+
+.taskList::-webkit-scrollbar-thumb {
+  background-color: #9ebee6;
+  border-radius: 5px;
+}

@@ -1,0 +1,25 @@
+.taskCounter__title {
+  font-size: 50px;
+  text-align: center;
+  margin: 30px 0 10px;
+  font-weight: bold;
+  background: linear-gradient(
+    90deg,
+    rgba(113, 53, 124, 1) 0%,
+    rgba(157, 231, 185, 1) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-align: center;
+}
+
+.taskCounter__complete {
+  font-size: 20px;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.taskCounter__complete span {
+  font-weight: bold;
+}

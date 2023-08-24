@@ -1,0 +1,9 @@
+.addButton {
+  color: white;
+  background-color: #71357c;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 20px;
+}

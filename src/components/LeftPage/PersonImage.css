@@ -1,0 +1,8 @@
+.personImage__container {
+  width: 100%;
+}
+
+.personImage__container img {
+  max-width: 100%;
+  height: auto;
+}

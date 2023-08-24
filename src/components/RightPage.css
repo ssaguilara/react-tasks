@@ -1,0 +1,9 @@
+.RightPage {
+  border-radius: 20px;
+  border: 3px white solid;
+  width: 450px;
+  height: 90vh;
+  justify-self: start;
+  align-self: center;
+  padding: 0px 25px;
+}

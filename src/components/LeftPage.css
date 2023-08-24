@@ -1,0 +1,9 @@
+.leftPage {
+  background-color: white;
+  border-radius: 20px;
+  width: 450px;
+  height: 90vh;
+  justify-self: end;
+  align-self: center;
+  padding: 5px 25px;
+}
