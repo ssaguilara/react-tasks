@@ -1,4 +1,4 @@
-.RightPage {
+.rightPage {
   border-radius: 20px;
   border: 3px white solid;
   width: 450px;
@@ -6,4 +6,17 @@
   justify-self: start;
   align-self: center;
   padding: 0px 25px;
+}
+
+@media screen and (max-width: 930px) {
+  .rightPage {
+    justify-self: center;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .rightPage {
+    width: 100%;
+    /* min-height: 90vh; */
+  }
 }

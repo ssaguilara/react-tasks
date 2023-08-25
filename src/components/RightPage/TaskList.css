@@ -16,3 +16,9 @@
   background-color: #9ebee6;
   border-radius: 5px;
 }
+
+@media screen and (max-width: 370px) {
+  .taskList {
+    height: 49vh;
+  }
+}

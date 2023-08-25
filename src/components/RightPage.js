@@ -16,8 +16,9 @@ export default function RightPage() {
     { text: "Eighth Task", completed: false },
   ];
 
+
   return (
-    <div className="RightPage">
+    <div className="rightPage">
       <Counter completed={2} total={8} />
       <TaskSearch />
 

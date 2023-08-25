@@ -1,3 +1,5 @@
+Página para anotar nuestras tareas del día a día y hacer el seguimiento de las mismas
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
