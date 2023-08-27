@@ -3,9 +3,10 @@ import { TaskItem } from "./RightPage/TaskItem";
 import { TaskList } from "./RightPage/TaskList";
 import { TaskSearch } from "./RightPage/TaskSearch";
 import "./RightPage.css";
+import { useState } from "react";
 
 export default function RightPage() {
-  const defaultTodos = [
+  const defaultTasks = [
     { text: "First Task ", completed: true },
     { text: "Second Task", completed: false },
     { text: "Third Task", completed: false },
@@ -17,14 +18,23 @@ export default function RightPage() {
   ];
 
 
+  const [tasks, setTasks] = useState(defaultTasks);
+  const completedTask = tasks.filter((task) => task.completed).length;
+  const totalTasks = tasks.length;
+
+  const [searchValue, setSearchValue] = useState("");
+  const searchedTask = tasks.filter((task) => task.text.toLowerCase().includes(searchValue.toLowerCase()));
+
+  console.log(searchedTask)
+
   return (
     <div className="rightPage">
-      <Counter completed={2} total={8} />
-      <TaskSearch />
+      <Counter completed={completedTask} total={totalTasks} />
+      <TaskSearch searchValue={searchValue} setSearchValue={setSearchValue} />
 
       <TaskList>
-        {defaultTodos.map((todo, index) => (
-          <TaskItem key={index} text={todo.text} completed={todo.completed} />
+        {searchedTask.map((task, index) => (
+          <TaskItem key={index} text={task.text} completed={task.completed} />
         ))}
       </TaskList>
     </div>

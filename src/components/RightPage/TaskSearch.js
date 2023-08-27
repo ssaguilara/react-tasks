@@ -1,9 +1,6 @@
 import "./TaskSearch.css";
-import { useState } from "react";
 
-export function TaskSearch() {
-  const [searchValue, setSearchValue] = useState("");
-
+export function TaskSearch({ searchValue, setSearchValue }) {
   return (
     <input
       placeholder="Search your Task"
