@@ -17,16 +17,28 @@ export default function RightPage() {
     { text: "Eighth Task", completed: false },
   ];
 
-
   const [tasks, setTasks] = useState(defaultTasks);
   const completedTask = tasks.filter((task) => task.completed).length;
   const totalTasks = tasks.length;
 
   const [searchValue, setSearchValue] = useState("");
-  const searchedTask = tasks.filter((task) => task.text.toLowerCase().includes(searchValue.toLowerCase()));
+  const searchedTask = tasks.filter((task) =>
+    task.text.toLowerCase().includes(searchValue.toLowerCase())
+  );
+ 
+  const completeTask = (index) => {
+    const newTasks = [...tasks];
+    newTasks[index].completed = !newTasks[index].completed;
+    setTasks(newTasks);
+  };
 
-  console.log(searchedTask)
+  const deleteTask = (index) => {
+    const newTasks = [...tasks];
+    newTasks.splice(index, 1);
+    setTasks(newTasks);
+  };
 
+ 
   return (
     <div className="rightPage">
       <Counter completed={completedTask} total={totalTasks} />
@@ -34,7 +46,8 @@ export default function RightPage() {
 
       <TaskList>
         {searchedTask.map((task, index) => (
-          <TaskItem key={index} text={task.text} completed={task.completed} />
+          <TaskItem key={index} text={task.text} completed={task.completed} onCompleted={() => completeTask(index)}
+          onDelete={() => deleteTask(index)} />
         ))}
       </TaskList>
     </div>
