@@ -5,7 +5,9 @@ import { TaskSearch } from "./RightPage/TaskSearch";
 import "./RightPage.css";
 import { useState } from "react";
 import { useLocalStorage } from "../hook/useLocalStorage";
-
+import { TaskLoading } from "./RightPage/TaskLoading";
+import { TaskError } from "./RightPage/TaskError";
+import { TaskEmpty } from "./RightPage/TaskEmpty";
 
 export default function RightPage() {
   // const defaultTasks = [
@@ -22,7 +24,12 @@ export default function RightPage() {
   // localStorage.setItem("TASKS", JSON.stringify(defaultTasks));
   // localStorage.removeItem('TASKS');
 
-  const [tasks, saveTasks] = useLocalStorage('TASKS', []);
+  const {
+    item: tasks,
+    saveItem: saveTasks,
+    loading,
+    error,
+  } = useLocalStorage("TASKS", []);
 
   const completedTask = tasks.filter((task) => task.completed).length;
   const totalTasks = tasks.length;
@@ -50,6 +57,10 @@ export default function RightPage() {
       <TaskSearch searchValue={searchValue} setSearchValue={setSearchValue} />
 
       <TaskList>
+        {loading && <TaskLoading />}
+        {error && <TaskError/>}
+        {!error && !loading && searchedTask.length === 0 && <TaskEmpty/>}
+
         {searchedTask.map((task, index) => (
           <TaskItem
             key={index}
