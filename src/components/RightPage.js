@@ -1,13 +1,14 @@
-import { Counter } from "./RightPage/TaskCounter";
+import "./RightPage.css";
+import { TaskCounter } from "./RightPage/TaskCounter";
 import { TaskItem } from "./RightPage/TaskItem";
 import { TaskList } from "./RightPage/TaskList";
 import { TaskSearch } from "./RightPage/TaskSearch";
-import "./RightPage.css";
-import { useState } from "react";
-import { useLocalStorage } from "../hook/useLocalStorage";
 import { TaskLoading } from "./RightPage/TaskLoading";
 import { TaskError } from "./RightPage/TaskError";
 import { TaskEmpty } from "./RightPage/TaskEmpty";
+
+import { useContext } from "react";
+import { TaskContext } from "../context/TaskContext";
 
 export default function RightPage() {
   // const defaultTasks = [
@@ -24,53 +25,29 @@ export default function RightPage() {
   // localStorage.setItem("TASKS", JSON.stringify(defaultTasks));
   // localStorage.removeItem('TASKS');
 
-  const {
-    item: tasks,
-    saveItem: saveTasks,
-    loading,
-    error,
-  } = useLocalStorage("TASKS", []);
-
-  const completedTask = tasks.filter((task) => task.completed).length;
-  const totalTasks = tasks.length;
-
-  const [searchValue, setSearchValue] = useState("");
-  const searchedTask = tasks.filter((task) =>
-    task.text.toLowerCase().includes(searchValue.toLowerCase())
-  );
-
-  const completeTask = (index) => {
-    const newTasks = [...tasks];
-    newTasks[index].completed = !newTasks[index].completed;
-    saveTasks(newTasks);
-  };
-
-  const deleteTask = (index) => {
-    const newTasks = [...tasks];
-    newTasks.splice(index, 1);
-    saveTasks(newTasks);
-  };
+  const { loading, error, searchedTask, completeTask, deleteTask } = useContext(TaskContext)
 
   return (
     <div className="rightPage">
-      <Counter completed={completedTask} total={totalTasks} />
-      <TaskSearch searchValue={searchValue} setSearchValue={setSearchValue} />
+      <TaskCounter />
+      <TaskSearch />
 
-      <TaskList>
-        {loading && <TaskLoading />}
-        {error && <TaskError/>}
-        {!error && !loading && searchedTask.length === 0 && <TaskEmpty/>}
+          <TaskList>
+            {loading && <TaskLoading />}
+            {error && <TaskError />}
+            {!error && !loading && searchedTask.length === 0 && <TaskEmpty />}
 
-        {searchedTask.map((task, index) => (
-          <TaskItem
-            key={index}
-            text={task.text}
-            completed={task.completed}
-            onCompleted={() => completeTask(index)}
-            onDelete={() => deleteTask(index)}
-          />
-        ))}
-      </TaskList>
+            {searchedTask.map((task, index) => (
+              <TaskItem
+                key={index}
+                text={task.text}
+                completed={task.completed}
+                onCompleted={() => completeTask(index)}
+                onDelete={() => deleteTask(index)}
+              />
+            ))}
+          </TaskList>
+
     </div>
   );
 }

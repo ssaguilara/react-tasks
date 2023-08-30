@@ -1,6 +1,11 @@
 import "./TaskSearch.css";
+import { useContext } from "react";
+import { TaskContext } from "../../context/TaskContext";
 
-export function TaskSearch({ searchValue, setSearchValue }) {
+export function TaskSearch() {
+
+  const {searchValue,setSearchValue} = useContext(TaskContext);
+
   return (
     <input
       placeholder="Search your Task"
