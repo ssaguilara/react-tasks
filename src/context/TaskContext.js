@@ -32,6 +32,15 @@ export function TaskContextProvider({ children }) {
         saveTasks(newTasks);
       };
 
+      const addTask = (text) => {
+        const newTasks = [...tasks];
+        newTasks.push({
+          text,
+          completed: false,
+        });
+        saveTasks(newTasks);
+      };
+
 
   return (
     <TaskContext.Provider value={{
@@ -44,6 +53,7 @@ export function TaskContextProvider({ children }) {
       searchedTask,
       completeTask,
       deleteTask,
+      addTask,
     }}>
 
       {children}
