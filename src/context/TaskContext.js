@@ -41,6 +41,10 @@ export function TaskContextProvider({ children }) {
         saveTasks(newTasks);
       };
 
+      const [isModalAddOpen, setIsModalAddOpen] = useState(undefined);
+
+      const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+
 
   return (
     <TaskContext.Provider value={{
@@ -54,6 +58,10 @@ export function TaskContextProvider({ children }) {
       completeTask,
       deleteTask,
       addTask,
+      isModalAddOpen,
+      setIsModalAddOpen,
+      windowWidth, 
+      setWindowWidth
     }}>
 
       {children}

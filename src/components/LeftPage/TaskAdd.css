@@ -1,35 +1,104 @@
-.taskAdd {
-  background: #f9fbfc;
-  background: #f9fbfc;
+.closeButton{
+  display: none;
+}
+
+.leftTitle {
+  margin: 50px 0 20px;
+  color: #71357c;
+  font-size: 30px;
+  cursor: default;
+}
+
+.taskContainer {
+  display: flex;
+  align-items: center;
   border-radius: 10px;
   border: 2px solid #202329;
-  margin: auto;
-  height: 40px;
   width: 100%;
-  font-size: 20px;
-  text-align: center;
+}
+
+.taskAdd {
+  background: #f9fbfc;
+  border: none;
+  border-radius: 10px;
+  height: 30px;
+  width: 100%;
+  resize: none;
+  font-size: 16px;
+  line-height: 30px;
   font-family: "Montserrat";
   font-weight: 400;
+  padding-left: 5px;
   color: #1e1e1f;
-  box-shadow: 0px 5px 50px rgba(32, 35, 41, 0.25);
 }
 
 .taskAdd::placeholder {
   color: #a5a5a5;
+  text-align: center;
 }
 
 .taskAdd:focus {
-  outline-color: #71357c;
+  outline: none;
 }
 
 .addButton {
-  color: white;
-  background-color: #71357c;
-  font-size: 16px;
-  padding: 10px 20px;
+  color: #71357c;
+  font-size: 30px;
+  width: 30px;
+  height: 30px;
   border: none;
-  border-radius: 5px;
-  margin-top: 20px;
+  border-radius: 50%;
   cursor: pointer;
+  margin: 0 1px;
 }
 
+@media screen and (max-width: 700px) {
+  .leftTitle {
+    font-size: 25px;
+  }
+  .taskAdd {
+    font-size: 14px;
+  }
+  .taskAdd::placeholder {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .closeButtonContainer{
+    display: flex;
+    justify-content: end;
+  }
+
+  .closeButton{
+    display: flex;
+    font-size: 16px;
+    margin-top: 5px;
+    margin-right: -5px;
+    border: none;
+  }
+
+  .closeButton svg{
+    cursor: pointer;
+  }
+
+  .leftTitle {
+    margin: 15px 0 20px;
+  }
+
+  .taskContainer {
+    flex-direction: column;
+    align-items: end;
+    justify-content: space-between;
+    height: 30vh;
+  }
+
+  .taskAdd {
+    height: 25vh;
+    line-height: normal;
+  }
+
+
+
+
+}

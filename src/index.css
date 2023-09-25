@@ -5,11 +5,6 @@
 }
 
 body {
-  /* background: linear-gradient(
-    90deg,
-    rgba(255, 115, 92, 1) 0%,
-    rgba(157, 191, 231, 1) 100%
-  ); */
   background: linear-gradient(
     90deg,
     rgba(157, 191, 231, 1) 0%,
@@ -20,16 +15,13 @@ body {
 }
 
 #root {
-  padding: 10px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   min-height: 100vh;
-  /* gap: 20px; */
+  overflow: hidden;
 }
 
-@media screen and (max-width: 930px) {
-  #root {
-    grid-template-columns: 1fr;
-  }
-}
+
 

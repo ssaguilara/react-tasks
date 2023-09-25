@@ -8,7 +8,7 @@ export function TaskSearch() {
 
   return (
     <input
-      placeholder="Search your Task"
+      placeholder="Write here your Search"
       className="taskSearch"
       value={searchValue}
       onChange={(e) => {

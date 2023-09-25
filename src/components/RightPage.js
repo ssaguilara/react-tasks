@@ -6,6 +6,7 @@ import { TaskSearch } from "./RightPage/TaskSearch";
 import { TaskLoading } from "./RightPage/TaskLoading";
 import { TaskError } from "./RightPage/TaskError";
 import { TaskEmpty } from "./RightPage/TaskEmpty";
+import { MdOutlineAddCircle } from "react-icons/md";
 
 import { useContext } from "react";
 import { TaskContext } from "../context/TaskContext";
@@ -21,33 +22,41 @@ export default function RightPage() {
   //   { text: "Seventh Task", completed: false },
   //   { text: "Eighth Task", completed: false },
   // ];
-
   // localStorage.setItem("TASKS", JSON.stringify(defaultTasks));
   // localStorage.removeItem('TASKS');
 
-  const { loading, error, searchedTask, completeTask, deleteTask } = useContext(TaskContext)
+  const {
+    loading,
+    error,
+    searchedTask,
+    completeTask,
+    deleteTask,
+    setIsModalAddOpen,
+  } = useContext(TaskContext);
 
   return (
     <div className="rightPage">
       <TaskCounter />
       <TaskSearch />
-
-          <TaskList>
-            {loading && <TaskLoading />}
-            {error && <TaskError />}
-            {!error && !loading && searchedTask.length === 0 && <TaskEmpty />}
-
-            {searchedTask.map((task, index) => (
-              <TaskItem
-                key={index}
-                text={task.text}
-                completed={task.completed}
-                onCompleted={() => completeTask(index)}
-                onDelete={() => deleteTask(index)}
-              />
-            ))}
-          </TaskList>
-
+      <TaskList>
+        {loading && <TaskLoading />}
+        {error && <TaskError />}
+        {!error && !loading && searchedTask.length === 0 && <TaskEmpty />}
+        {searchedTask.map((task, index) => (
+          <TaskItem
+            key={index}
+            text={task.text}
+            completed={task.completed}
+            onCompleted={() => completeTask(index)}
+            onDelete={() => deleteTask(index)}
+          />
+        ))}
+      </TaskList>
+      <div className="addButtonContainer">
+        <button className="addButtonModal" onClick={() => setIsModalAddOpen(true)}>
+          <MdOutlineAddCircle />
+        </button>
+      </div>
     </div>
   );
 }
