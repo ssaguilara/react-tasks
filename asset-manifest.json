@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Users/Admin/Desktop/to-do-list/build/static/css/main.a69be1d4.css",
+    "main.js": "/Users/Admin/Desktop/to-do-list/build/static/js/main.dfbbda8b.js",
+    "index.html": "/Users/Admin/Desktop/to-do-list/build/index.html",
+    "main.a69be1d4.css.map": "/Users/Admin/Desktop/to-do-list/build/static/css/main.a69be1d4.css.map",
+    "main.dfbbda8b.js.map": "/Users/Admin/Desktop/to-do-list/build/static/js/main.dfbbda8b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a69be1d4.css",
+    "static/js/main.dfbbda8b.js"
+  ]
+}
